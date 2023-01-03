@@ -1,0 +1,207 @@
+{
+    "height": 30,
+
+	// Modules
+    "modules-left": ["sway/window", "custom/media", "custom/spotify"],
+    "modules-center": ["sway/workspaces"],
+    "modules-right": ["custom/scratchpad", "tray", "custom/github", "custom/weather", "network", "memory", "bluetooth", "pulseaudio", "battery", "clock"],
+
+    // Workspaces
+    "sway/workspaces": {
+    	"persistent_workspaces": {
+			"1": [],
+			"2": [],
+			"3": [],
+			"4": [],
+			"5": []
+		 },	
+         "disable-scroll": true,
+         "all-outputs": true,
+         "format": "{icon}",
+          "format-icons": {
+            "urgent": "",
+            "default": "",
+            "focused": "",
+           }
+     },
+
+	// Window
+     "sway/window": {
+         "format": "{}",
+         "max-length": 25,
+         "rewrite": {
+             "Mozilla Firefox": "  Firefox",
+             "Alacritty": "<span font='11'> </span> Terminal",
+             "Telegram": "  Telegram",
+             "Google Chrome": "  Google Chrome",
+             "Visual Studio Code": "<span font='11'>󰨞 </span>Code",
+             "Telegram (.*)": "  Telegram $1",
+             "freaker": "<span font='11'>󰋞 </span>Home",
+             "Documents": "<span font='11'>󰈙 </span>Documents ",
+             "Downloads": "<span font='11'>󰇚 </span>Downloads",
+             "Drive": "<span font='11'>󰊶 </span>Drive",
+             "Music": "<span font='11'>󰝚 </span>Music",
+             "Pictures": "<span font='11'>󰋩 </span>Pictures",
+			 "GitHub": "<span font='11'>󰊤 </span>GitHub",
+			 "GitLab": "<span font='11'>󰮠 </span>GitLab",
+			 "Movies": "<span font='11'>󰕧 </span>Movies",
+			 "Trash": "<span font='11'>󰩹 </span>Trash",
+             "(.*) — Mozilla Firefox": "  $1",
+             "(.*) - Google Chrome": "  $1",
+			 "(.*) - mpv": "󱜕  $1",
+			 "(.*) - Visual Studio Code": "<span font='11'>󰨞 </span>$1"
+         }
+     },
+
+     // Tray
+    "tray": {
+        "icon-size": 18,
+        "spacing": 10
+    },
+
+    // Clock
+    "clock": {
+        "format": "{:%I:%M}",
+        "tooltip-format": "{:%a, %d %B}" 
+    },
+    
+	// cpu
+    "cpu": {
+        "interval": 10,
+        "format": "{}% ",
+        "max-length": 10
+    },
+
+    // Memory
+    "memory": {
+         "format": "<span font='11'></span>{used: 0.1f}GB",
+         "interval": 1,
+         "tooltip": false
+     },
+
+     // Battery
+    "battery": {
+        "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "interval": 1,
+        "format": "{icon} {capacity}%",
+        "format-icons": ["", "", "", "", ""],
+        "format-charging": "{icon} {capacity}%",
+        "format-full": "{icon} {capacity}%",
+        "format-plugged": "{icon} {capacity}%"
+    },
+
+    // Network
+    "network": {
+        "format-wifi":"  {essid}",
+       	"format-ethernet": "",
+       	"format-linked": "{ifname} (No IP) ",
+        "format-disconnected": "No IP",
+        "interval": 1,
+        "tooltip-format": "{ifname}",
+        "tooltip-format-wifi": "U: {bandwidthUpBytes}  D: {bandwidthDownBytes}",
+        "tooltip-format-ethernet": "{ifname} U: {bandwidthUpBytes}, D: {bandwidthDownBytes}",
+        "tooltip-format-disconnected": "Disconnected",
+        // {signalStrength}%
+    },
+
+    // Pulseaudio
+    "pulseaudio": {
+        "format": "<span font='11'>{icon}</span> {volume}%",
+        "format-bluetooth": " {volume}%",
+        "format-bluetooth-muted": "<span font='11'>{format_source}</span>",
+        "format-muted": "<span font='11'>{format_source}</span>",
+		"format-source": "",
+		"format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "default": ["", ""]
+        },
+        "tooltip": true,
+        "on-click": "pavucontrol"
+    },
+
+	// Bluetooth
+    "bluetooth": {
+          "format":" {status}",
+          "format-on": "",
+          "format-off": "<span font='11'></span>",
+          "format-connected": " {device_alias} • {device_battery_percentage}%",
+		  "tooltip": false,
+          "on-click": "alacritty --class bluetuith -e bluetuith",
+          "on-click-right": "~/.config/waybar/scripts/bluetooth.sh"
+     },
+        
+	// Backlight
+    "backlight": {
+        "device": "",
+        "format": " {icon} {percent}%",
+        "format-icons": ["","", "", ""]
+    },
+
+    // Weather
+    "custom/weather": {
+         "exec": "curl 'https://wttr.in/342008?format=1' | tr + ' ' | tr -d [:space:]",
+         "interval": 300,
+         "tooltip": false
+      },
+
+	// Scratchpad
+   	"custom/scratchpad": {
+   	    "interval": 1,
+   	    "return-type": "json",
+   	    "exec": "swaymsg -t get_tree | jq --unbuffered --compact-output '(recurse(.nodes[]) | select(.name == \"__i3_scratch\") | .focus) as $scratch_ids | [..  | (.nodes? + .floating_nodes?) // empty | .[] | select(.id |IN($scratch_ids[]))] as $scratch_nodes | if ($scratch_nodes|length) > 0 then { text: \"\\($scratch_nodes | length)\", tooltip: $scratch_nodes | map(\"\\(.app_id // .window_properties.class)\") | join(\"\\n\") } else empty end'",
+   	    "format": " ",
+   	    "on-click": "exec swaymsg 'scratchpad show'",
+   	    "on-click-right": "exec swaymsg 'move scratchpad'"
+   	},
+
+    // Custom Module for playback
+    "custom/media": {
+        "format": "{icon}{}",
+        "format-icons": {
+          "Paused": "",
+          "Playing": ""
+        },
+        "return-type": "json",
+        "max-length": 30,
+        "on-click": "playerctl play-pause",
+        "exec": "playerctl --ignore-player=spotify metadata --format '{\"text\": \" {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F"
+   	},
+          	  
+    "custom/spotify": {
+       "format": "{icon}{}",
+       "format-icons": {
+         "Paused": "<span font='12'></span>",
+         "Playing": "<span font='12'></span>"
+        },
+       "return-type": "json",
+       "max-length": 30,
+       "on-click": "playerctl play-pause",
+       "exec": "playerctl --player=spotify metadata --format '{\"text\": \" {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F"
+   	},
+
+   	// updates
+   	"custom/pacman": {
+   	    "format": " {}",
+   	    "interval": 3600,   
+   	    "tooltip": false,                  
+   	    "exec": "~/.config/waybar/scripts/pacman.sh",       
+   	    "exec-if": "exit 0",                  
+   	    "on-click": "alacritty -e 'sudo pacman -Syu'; pkill -SIGRTMIN+8 waybar",
+   	    "signal": 8
+   	},
+
+   	// github
+   	"custom/github": {
+   	    "format": "{} ",
+   	    "return-type": "json",
+   	    "interval": 60,
+   	    "exec": "~/.config/waybar/scripts/github.sh",
+   	    "on-click": "xdg-open https://github.com/notifications"
+   	}
+   	
+}

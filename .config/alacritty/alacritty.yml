@@ -1,0 +1,216 @@
+# Configuration for Alacritty, the GPU enhanced terminal emulator.
+
+env:
+  TERM: xterm-256color
+
+window:
+  padding:
+    x: 5
+  dynamic_padding: true
+
+dynamic_title: true
+
+# Font configuration (changes require restart)
+font:
+  # Normal (roman) font face
+  normal:
+    family: JetBrainsMono Nerd Font
+    # The `style` can be specified to pick a specific face.
+    style: Regular
+
+  # Bold font face
+  bold:
+    family: JetBrainsMono Nerd Font
+    # The `style` can be specified to pick a specific face.
+    style: Bold
+
+  # Italic font face
+  italic:
+    family: JetBrainsMono Nerd Font
+    # The `style` can be specified to pick a specific face.
+    style: Italic
+
+  bold_italic:
+    family: JetBrainsMono Nerd Font
+    style: Bold Italic
+
+  # Point size of the font
+  size: 11.0
+
+  # Offset is the extra space around each character. `offset.y` can be thought of
+  # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
+  offset:
+    x: 0
+    y: 0
+
+  # Glyph offset determines the locations of the glyphs within their cells with
+  # the default being at the bottom. Increasing `x` moves the glyph to the right,
+  # increasing `y` moves the glyph upwards.
+  glyph_offset:
+    x: 0
+    y: 0
+
+# Colors (Tomorrow Night)
+schemes:
+  # Default colors
+  default: &default
+    primary:
+      background: "#151515"
+      foreground: "#E8E3E3"
+
+    # Normal colors
+    normal:
+      black: "#1d1f21"
+      red: "#EF4444"
+      green: "#2ECC71"
+      yellow: "#f1c40f"
+      blue: "#039be5"
+      magenta: "#E879F9"
+      cyan: "#039be5"
+      white: "#eaeaea"
+
+    # Bright colors
+    bright:
+      black: "#666666"
+      red: "#FB7185"
+      green: "#2ECC71"
+      yellow: "#f1c40f"
+      blue: "#039be5"
+      magenta: "#F48FB1"
+      cyan: "#039be5"
+      white: "#ffffff"
+
+  palenight: &palenight
+    primary:
+      background: "#151515"
+      foreground: "#d8dee9"
+
+    normal:
+      black: "#292d3e"
+      red: "#f07178"
+      green: "#c3e88d"
+      yellow: "#ffcb6b"
+      blue: "#82aaff"
+      magenta: "#c792ea"
+      cyan: "#89ddff"
+      white: "#ffffff"
+
+    bright:
+      black: "#676e95"
+      red: "#f07178"
+      green: "#c3e88d"
+      yellow: "#ffcb6b"
+      blue: "#682aaf"
+      magenta: "#c792ea"
+      cyan: "#89ddff"
+      white: "#ffffff"
+
+  everforest: &everforest
+    primary:
+      background: "#272e33"
+      foreground: "#d8dee9"
+
+    normal:
+      black: "#4b565c"
+      red: "#e67e80"
+      green: "#a7c080"
+      yellow: "#dbbc7f"
+      blue: "#7fbbb3"
+      magenta: "#d699b6"
+      cyan: "#83c092"
+      white: "#d3c6aa"
+
+    bright:
+      black: "#4b565c"
+      red: "#e67e80"
+      green: "#a7c080"
+      yellow: "#dbbc7f"
+      blue: "#7fbbb3"
+      magenta: "#d699b6"
+      cyan: "#83c092"
+      white: "#d3c6aa"
+
+  nord: &nord
+    primary:
+      background: "#2e3440"
+      foreground: "#d8dee9"
+
+    normal:
+      black: "#3b4252"
+      red: "#bf616a"
+      green: "#a3be8c"
+      yellow: "#ebcb8b"
+      blue: "#81a1c1"
+      magenta: "#b48ead"
+      cyan: "#88c0d0"
+      white: "#e5e9f0"
+
+    bright:
+      black: "#4c566a"
+      red: "#bf616a"
+      green: "#a3be8c"
+      yellow: "#ebcb8b"
+      blue: "#81a1c1"
+      magenta: "#b48ead"
+      cyan: "#8fbcbb"
+      white: "#eceff4"
+
+  catppuccin: &catppuccin
+    primary:
+      background: "#1E1E2E"
+      foreground: "#D9E0EE"
+
+    normal:
+      black: "#6E6C7E"
+      red: "#F28FAD"
+      green: "#ABE9B3"
+      yellow: "#FAE3B0"
+      blue: "#96CDFB"
+      magenta: "#F5C2E7"
+      cyan: "#89DCEB"
+      white: "#D9E0EE"
+
+    bright:
+      black: "#988BA2"
+      red: "#F28FAD"
+      green: "#ABE9B3"
+      yellow: "#FAE3B0"
+      blue: "#96CDFB"
+      magenta: "#F5C2E7"
+      cyan: "#89DCEB"
+      white: "#D9E0EE"
+
+  rosepine: &rosepine
+    primary:
+      background: "0x191724"
+      foreground: "0xe0def4"
+
+    cursor:
+      text: "0xe0def4"
+      cursor: "0x524f67"
+
+    selection:
+      text: "0xe0def4"
+      background: "0x403d52"
+
+    normal:
+      black: "0x26233a"
+      red: "0xeb6f92"
+      green: "0x31748f"
+      yellow: "0xf6c177"
+      blue: "0x9ccfd8"
+      magenta: "0xc4a7e7"
+      cyan: "0xebbcba"
+      white: "0xe0def4"
+
+    bright:
+      black: "0x6e6a86"
+      red: "0xeb6f92"
+      green: "0x31748f"
+      yellow: "0xf6c177"
+      blue: "0x9ccfd8"
+      magenta: "0xc4a7e7"
+      cyan: "0xebbcba"
+      white: "0xe0def4"
+
+colors: *palenight

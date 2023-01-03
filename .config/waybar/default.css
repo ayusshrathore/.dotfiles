@@ -1,0 +1,138 @@
+@import "colorschemes/nord.css"; 
+/* @import url('/home/freaker/.cache/wal/base0s-waybar.css'); */
+
+* {
+	border: none;
+	border-radius: 0;
+	font-family: "Inter Nerd Font", "icomoon-feather", "Material-Design-Icons";
+	font-size: 13px;
+	font-weight: bold; 
+	min-height: 0;
+}
+
+#window {
+	padding: 0 4px;
+}
+
+window#waybar {
+	/* background-base0: transparent; */
+	background-color: #212121; 
+	opacity: 0.9; 
+}
+
+#waybar.empty #window {
+	padding: 0;
+}
+
+#workspaces {
+	margin: 0 4px;
+}
+
+#workspaces button {
+	padding: 0 4px;
+	min-width: 20px; 
+	color: @base04;
+}
+
+#workspaces button.active {
+	color: @base09;
+}
+
+#workspaces button.focused {
+	color: @base09;
+}
+
+#workspaces button.urgent {
+	color: @base01;
+}
+
+#workspaces button.persistent {
+	color: #BDBDBD;
+}
+
+#workspaces button:hover {
+	background: rgba(0, 0, 0, 0);
+}
+
+tooltip { 
+	background-color: #5BB462;
+	border-radius: 5px;
+	color: @base00;
+}
+
+tooltip label {
+	padding: 5px;
+}
+
+#battery,
+#memory,
+#network,
+#pulseaudio,
+#tray,
+#bluetooth,
+#backlight,
+#clock,
+#cpu,
+#custom-media,
+#custom-spotify,
+#custom-pacman,
+#custom-weather,
+#custom-github {
+ 	padding: 0 4px;
+    margin: 1px 1px;
+}
+
+#battery,
+#battery.charging,
+#battery.plugged {
+	color: @base05;
+}
+
+#network {
+	color: @base02;
+}
+
+#pulseaudio,
+#pulseaudio.muted {
+	color: @base09;
+}
+
+#memory {
+	color: @base03;
+}
+
+#clock, #bluetooth { 
+	color: @base04;
+}
+
+#backlight {
+	color: @base0B;
+}
+
+#custom-media,
+#custom-spotify {
+	color: #4ADE80;
+}
+
+#custom-pacman,
+#custom-weather,
+#custom-github {
+	color: #e0e0e0;
+}
+
+@keyframes blink {
+	to {
+		background-color: #ffffff;
+		color: #000000;
+	}
+}
+
+#battery.critical:not(.charging) {
+	background-color: @base01;
+	color: #ffffff;
+	animation-name: blink;
+	animation-duration: 0.8s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+}
