@@ -1,0 +1,1 @@
+/home/freaker/.config/zsh/.zshenv
