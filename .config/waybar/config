@@ -4,7 +4,7 @@
 	// Modules
     "modules-left": ["sway/window", "custom/media", "custom/spotify"],
     "modules-center": ["sway/workspaces"],
-    "modules-right": ["custom/scratchpad", "tray", "custom/github", "custom/weather", "network", "memory", "bluetooth", "pulseaudio", "battery", "clock"],
+    "modules-right": ["custom/scratchpad", "tray", "custom/weather", "network", "memory", "bluetooth", "pulseaudio", "battery", "clock"],
 
     // Workspaces
     "sway/workspaces": {
