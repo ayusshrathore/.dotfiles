@@ -111,8 +111,4 @@ alias esa="npx expo start --android"
 alias top="btm"
 alias speed="speedtest"
 
-alias bsp="$EDITOR ~/.config/bspwm/bspwmrc"
-alias sxh="$EDITOR ~/.config/sxhkd/sxhkdrc"
-alias pol="$EDITOR ~/.config/polybar/config.ini"
-
 alias dot="/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
