@@ -67,6 +67,7 @@ include "colorschemes/palenight"
 	    gsettings set $gnome-schema font-name 'Ubuntu 11'
 	    gsettings set $gnome-schema document-font-name 'Ubuntu 11'
 	    gsettings set $gnome-schema monospace-font-name 'JetBrainsMono Nerd Font 10'
+	    gsettings set $gnome-schema cursor-theme 'Bibata-Modern-Classic'
 	}
 
 	## Dunst
@@ -119,7 +120,7 @@ include "colorschemes/palenight"
 	for_window [shell="x_wayland"] title_format "%class - %title"
 
 	# Opacity
-	for_window [app_id="org.gnome.Nautilus"] opacity 0.95
+	# for_window [app_id="org.gnome.Nautilus"] opacity 0.95
 	for_window [app_id="Alacritty"] opacity 0.95
 	for_window [app_id="bluetuith"] opacity 0.95
 
@@ -135,6 +136,8 @@ include "colorschemes/palenight"
 	smart_gaps off
 	smart_borders off
 	corner_radius 5
+	shadows on
+	shadow_color #0000007F
 
 	## Window decoration
 	## class            	  border   backgr.   text     indicator  child_border
@@ -143,7 +146,7 @@ include "colorschemes/palenight"
 	client.focused_inactive   $base06  $base00   $base07  $base00    $base00
 
 	## Wallpaper
-	output * bg /home/freaker/Pictures/Wallpapers/11.jpg fill
+	output * bg /home/freaker/Pictures/Wallpapers/13.jpg fill
 
 ##################################### Config ###########################
 
