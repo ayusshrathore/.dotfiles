@@ -146,7 +146,7 @@ include "colorschemes/palenight"
 	client.focused_inactive   $base06  $base00   $base07  $base00    $base00
 
 	## Wallpaper
-	output * bg /home/freaker/Pictures/Wallpapers/13.jpg fill
+	output * bg /home/freaker/Pictures/Wallpapers/20.jpg fill
 
 ##################################### Config ###########################
 
@@ -210,9 +210,9 @@ include "colorschemes/palenight"
 	bindsym $mod+f exec $files 
 
 	## Start Playerctl
-	bindsym Ctrl+Shift+period exec $next
-	bindsym Ctrl+Shift+comma exec $previous
-	bindsym Ctrl+Shift+space exec $pause
+	bindsym Alt+period exec $next
+	bindsym Alt+comma exec $previous
+	bindsym Alt+space exec $pause
 
 	## Power Menu
 	bindsym $mod+p exec $power
